@@ -1,0 +1,144 @@
+import React, { useState } from 'react';
+
+const App = () => {
+  const [transcribeModalVisible, setTranscribeModalVisible] = useState(false);
+
+  const handleTranscribeClick = () => {
+    setTranscribeModalVisible(true);
+  };
+
+  const handleCloseTranscribeModal = () => {
+    setTranscribeModalVisible(false);
+  };
+
+  return (
+    <div className="app">
+      {/* Top Section */}
+      <div className="top-section">
+        <div className="firm-name">ABC Firm</div>
+        <div className="buttons">
+          <button>Home</button>
+          <button>All Files</button>
+          <button>Saved</button>
+          <button>Integrations</button>
+          <button>Trash</button>
+          <button>Settings</button>
+          <button>Help and Support</button>
+        </div>
+        <div className="upgrade-section">
+          <div className="rocket-symbol">🚀</div>
+          <div className="upgrade-text">Upgrade Account</div>
+          <button className="upgrade-button">Upgrade</button>
+        </div>
+      </div>
+
+      {/* Middle Section */}
+      <div className="middle-section">
+        <div className="search-bar">Search</div>
+        <div className="user-section">
+          <div className="bell-icon">🔔</div>
+          <div className="profile-image">Profile</div>
+          <button className="transcribe-button" onClick={handleTranscribeClick}>
+            Transcribe
+          </button>
+        </div>
+
+        {/* Uploaded Files Section */}
+        <div className="uploaded-files">
+          <div className="file-box">100 Files</div>
+          <div className="transcribed-files-box">50 Transcribed</div>
+          <div className="saved-files-box">20 Saved</div>
+        </div>
+
+        {/* Recent Files Section */}
+        <div className="recent-files">
+          <div className="file-header">
+            <div>Name</div>
+            <div>Type</div>
+            <div>Duration</div>
+            <div>Date Created</div>
+            <div>Last Updated</div>
+            <div>Action</div>
+          </div>
+          <div className="file-row">
+            <div>Peng Meeting</div>
+            <div>Audio</div>
+            <div>20:00</div>
+            <div>Tofunmi</div>
+            <div>Table cell</div>
+            <div></div> {/* Empty action column */}
+          </div>
+          <div className="file-row">
+            <div>Tofunmi Idowu</div>
+            <div>SML10025</div>
+            <div>1/5/2023</div>
+            <div>Constance</div>
+            <div>Table cell</div>
+            <div></div> {/* Empty action column */}
+          </div>
+          <div className="file-row">
+            <div>Naomi Igimoh</div>
+            <div>SML10025</div>
+            <div>25/4/2023</div>
+            <div>Shakirat</div>
+            <div>Table cell</div>
+            <div></div> {/* Empty action column */}
+          </div>
+          <div className="file-row">
+            <div>Edu Hermanns</div>
+            <div>SML10025</div>
+            <div>20/4/2023</div>
+            <div>Tofunmi</div>
+            <div>Table cell</div>
+            <div></div> {/* Empty action column */}
+          </div>
+          <div className="file-row">
+            <div>Timmy Adubi</div>
+            <div>SML10025</div>
+            <div>20/4/2023</div>
+            <div>Tofunmi</div>
+            <div>Table cell</div>
+            <div></div> {/* Empty action column */}
+          </div>
+          <div className="file-row">
+            <div>Alex Oyebade</div>
+            <div>SML10025</div>
+            <div>20/4/2023</div>
+            <div>Shakirat</div>
+            <div>Table cell</div>
+            <div></div> {/* Empty action column */}
+          </div>
+        </div>
+      </div>
+
+      {/* Transcribe Modal */}
+      {transcribeModalVisible && (
+        <div className="transcribe-modal">
+          <div className="modal-header">
+            <div>Transcribe File</div>
+            <button onClick={handleCloseTranscribeModal}>✖</button>
+          </div>
+          <div className="transcription-language">Transcription Language</div>
+          <div className="upload-box">
+            <div className="default-box">Default (Blurred)</div>
+            <div className="upload-text">
+              Click to upload or drag and drop
+              <div className="cloud-upload">☁️</div>
+              The maximum file size is 1GB for audio and 10GB for videos supported formats: mp3, mp4, wav, cat, aitt, avi, rmvo, flv, m4a, mov, wmv, wma
+            </div>
+          </div>
+          <div className="import-link-box">
+            <div className="import-link-text">Import from Link (Blurred)</div>
+            {/* Paste link input */}
+          </div>
+          <div className="speaker-identification">
+            <div>Speaker Identification</div>
+            <div className="transcribe-file-button">Transcribe File</div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default App;
